@@ -16,6 +16,11 @@ struct tenant
     char pass[20];
     char cpass[20];
 };
+struct Admin
+{
+    char id[20];
+    char pass[20];
+};
 struct addflat
 {
     char nflor[10];
@@ -29,6 +34,27 @@ struct addflat
     char adress[50];
     char hname[20];
 };
+struct Bank
+{
+    char cnumber[20];
+    char cname[20];
+    char edate[10];
+    char cvv[10];
+};
+struct Bkash
+{
+    char name[20];
+    char amount[20];
+    char number[20];
+    char Tzid[20];
+
+};
+struct Tbalance
+{
+
+    float money;
+
+}tmoney;
 
 
 void cont_loop(int n)
@@ -47,6 +73,11 @@ void cont_loop(int n)
 }
 int main()
 {
+    char id[20]="Admin";
+    char pass[20]="Admin";
+    char idd[20];
+    char passs[20];
+    system("COLOR E");
     char tenant_user[20];
     char tenant_pass[20];
     char login_user[20];
@@ -58,10 +89,22 @@ int main()
     char khilkhet_ch;
     char nikunjo_ch;
     char rampura_ch;
+    char bkash_ch;
+    char nagad_ch;
+    char roket_ch;
+    char upay_ch;
     int option,n;
     struct owner o1;
     struct tenant t1;
     struct addflat a1;
+    struct Bkash B1;
+    struct Bkash N1;
+    struct Bkash R1;
+    struct Bkash U1;
+    struct Bank C1;
+    struct Bank C2;
+    struct Bank C3;
+    struct Bank C4;
     FILE *ownerfile;
     FILE *tenantfile;
     FILE *uttaraFlat;
@@ -69,14 +112,23 @@ int main()
     FILE *khilkhetFlat;
     FILE *nikunjoFlat;
     FILE *rampuraFlat;
+    FILE *Bkashdata;
+    FILE *Nagaddata;
+    FILE *Roketdata;
+    FILE *Upaydata;
+    FILE *Totalbalance;
 
     while(1)
     {
-        printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+        printf("\t\t\t\t\t  ____________________________________\n\n");
+        printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+        printf("\t\t\t\t\t  ____________________________________\n\n");
         printf("\t\t\t\t\t\t1.Owner\n");
         printf("\t\t\t\t\t\t2.Tnent\n");
-        printf("\t\t\t\t\t\t3.Exit\n");
-        printf("\t\t\t\t\t\tchose an option: ");
+        printf("\t\t\t\t\t\t3.Admin\n");
+        printf("\t\t\t\t\t\t4.Exit\n");
+        printf("\t\t\t\t\t  ____________________________________\n\n");
+        printf("\t\t\t\t\t  chose an option: ");
         scanf("%d",&option);
         system("cls");
 
@@ -84,19 +136,24 @@ int main()
         {
             while(1)
             {
-                printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                printf("\t\t\t\t\t  ____________________________________\n\n");
+                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                printf("\t\t\t\t\t  ____________________________________\n\n");
                 printf("\t\t\t\t\t\t1.sign in\n");
                 printf("\t\t\t\t\t\t2.sign up\n");
                 printf("\t\t\t\t\t\t3.Back\n");
                 printf("\t\t\t\t\t\t4.Exit\n");
-                printf("\t\t\t\t\t\tchose an option: ");
+                printf("\t\t\t\t\t  ____________________________________\n\n");
+                printf("\t\t\t\t\t  chose an option: ");
                 scanf("%d",&n);
                 system("cls");
 
                 if(n==1)
                 {
                     n=0;
-                    printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                    printf("\t\t\t\t\t  ____________________________________\n\n");
                     printf("\t\t\t\t\t\tUser Name: ");
                     scanf("%s", &login_user);
                     strcpy(creat_file,login_user);
@@ -118,29 +175,33 @@ int main()
                             if(!strcmp(login_pass,o1.pass))
                             {
                                 system("cls");
-                                printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                printf("\t\t\t\t\t  ____________________________________\n\n");
                                 printf("\t\t\t\t\t\t1.Add Flat");
                                 printf("\n\t\t\t\t\t\t2.Collect Rent");
                                 printf("\n\t\t\t\t\t\t3.Tenent List");
                                 printf("\n\t\t\t\t\t\t4.Back");
                                 printf("\n\t\t\t\t\t\t5.Exit");
-
-
-                                printf("\n\t\t\t\t\t\tchose an option: ");
+                                printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                printf("\t\t\t\t\t  chose an option: ");
                                 scanf("%d",&n);
                                 system("cls");
                                 if (n==1)
                                 {
                                     n=0;
-                                    printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                    printf("\t\t\t\t\t  ____________________________________\n\n");
                                     printf("\t\t\t\t\t\t1.Uttara\n");
                                     printf("\t\t\t\t\t\t2.Mirpur\n");
                                     printf("\t\t\t\t\t\t3.Khilkhet\n");
                                     printf("\t\t\t\t\t\t4.Nikunjo\n");
                                     printf("\t\t\t\t\t\t5.Rampura\n\n");
                                     printf("\t\t\t\t\t\t6.Back\n");
-                                    printf("\t\t\t\t\t\t7.Exit\n");
-                                    printf("\n\t\t\t\t\t\tchose an option: ");
+                                    printf("\t\t\t\t\t\t7.Exit");
+                                    printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                    printf("\t\t\t\t\t  chose an option: ");
                                     scanf("%d",&n);
 
                                     system("cls");
@@ -158,7 +219,9 @@ int main()
                                         {
 
 
-                                            printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                                            printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                            printf("\t\t\t\t\t  ____________________________________\n\n");
                                             fgetc(stdin);
                                             printf("\t\t\t\t\t\tHouse Name: ");
                                             fgets(a1.hname,20,stdin);
@@ -199,9 +262,10 @@ int main()
                                             fprintf(uttaraFlat,"contact :01624498951\n\n");
                                             printf("\n\t\t\t\t\t\tconfirm flat?\n");
                                             printf("\n\t\t\t\t\t\t1.Yes\n");
-                                            printf("\n\t\t\t\t\t\t2.No\n");
+                                            printf("\n\t\t\t\t\t\t2.No");
                                             fclose(uttaraFlat);
-                                            printf("\n\t\t\t\t\t\tchose an option: ");
+                                            printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                            printf("\t\t\t\t\t  chose an option: ");
                                             scanf("%d",&n);
                                             system("cls");
                                         }
@@ -220,7 +284,9 @@ int main()
                                         else
                                         {
 
-                                            printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                                            printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                            printf("\t\t\t\t\t  ____________________________________\n\n");
                                             fgetc(stdin);
                                             printf("\t\t\t\t\t\tHouse Name: ");
                                             fgets(a1.hname,20,stdin);
@@ -261,9 +327,10 @@ int main()
                                             fprintf(mirpurFlat,"contact :01624498951\n\n");
                                             printf("\n\t\t\t\t\t\tconfirm flat?\n");
                                             printf("\n\t\t\t\t\t\t1.Yes\n");
-                                            printf("\n\t\t\t\t\t\t2.No\n");
+                                            printf("\n\t\t\t\t\t\t2.No");
                                             fclose(mirpurFlat);
-                                            printf("\n\t\t\t\t\t\tchose an option: ");
+                                            printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                            printf("\t\t\t\t\t  chose an option: ");
                                             scanf("%d",&n);
                                             system("cls");
                                         }
@@ -282,7 +349,9 @@ int main()
                                         else
                                         {
 
-                                            printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                                            printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                            printf("\t\t\t\t\t  ____________________________________\n\n");
                                             fgetc(stdin);
                                             printf("\t\t\t\t\t\tHouse Name: ");
                                             fgets(a1.hname,20,stdin);
@@ -323,9 +392,10 @@ int main()
                                             fprintf(khilkhetFlat,"contact :01624498951\n\n");
                                             printf("\n\t\t\t\t\t\tconfirm flat?\n");
                                             printf("\n\t\t\t\t\t\t1.Yes\n");
-                                            printf("\n\t\t\t\t\t\t2.No\n");
+                                            printf("\n\t\t\t\t\t\t2.No");
                                             fclose(khilkhetFlat);
-                                            printf("\n\t\t\t\t\t\tchose an option: ");
+                                            printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                            printf("\t\t\t\t\t  chose an option: ");
                                             scanf("%d",&n);
                                             system("cls");
                                         }
@@ -344,7 +414,9 @@ int main()
                                         else
                                         {
 
-                                            printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                                            printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                            printf("\t\t\t\t\t  ____________________________________\n\n");
                                             fgetc(stdin);
                                             printf("\t\t\t\t\t\tHouse Name: ");
                                             fgets(a1.hname,20,stdin);
@@ -385,9 +457,10 @@ int main()
                                             fprintf(nikunjoFlat,"contact :01624498951\n\n");
                                             printf("\n\t\t\t\t\t\tconfirm flat?\n");
                                             printf("\n\t\t\t\t\t\t1.Yes\n");
-                                            printf("\n\t\t\t\t\t\t2.No\n");
+                                            printf("\n\t\t\t\t\t\t2.No");
                                             fclose(nikunjoFlat);
-                                            printf("\n\t\t\t\t\t\tchose an option: ");
+                                            printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                            printf("\t\t\t\t\t  chose an option: ");
                                             scanf("%d",&n);
                                             system("cls");
                                         }
@@ -406,7 +479,9 @@ int main()
                                         else
                                         {
 
-                                            printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                                            printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                            printf("\t\t\t\t\t  ____________________________________\n\n");
                                             fgetc(stdin);
                                             printf("\t\t\t\t\t\tHouse Name: ");
                                             fgets(a1.hname,20,stdin);
@@ -447,9 +522,10 @@ int main()
                                             fprintf(rampuraFlat,"contact :01624498951\n\n");
                                             printf("\n\t\t\t\t\t\tconfirm flat?\n");
                                             printf("\n\t\t\t\t\t\t1.Yes\n");
-                                            printf("\n\t\t\t\t\t\t2.No\n");
+                                            printf("\n\t\t\t\t\t\t2.No");
                                             fclose(rampuraFlat);
-                                            printf("\n\t\t\t\t\t\tchose an option: ");
+                                            printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                            printf("\t\t\t\t\t  chose an option: ");
                                             scanf("%d",&n);
                                             system("cls");
                                         }
@@ -463,23 +539,24 @@ int main()
                                     while(1)
                                     {
                                         n=0;
-                                        printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n"); // work in process
+                                        printf("\t\t\t\t\t  ____________________________________\n\n");
+                                        printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                        printf("\t\t\t\t\t  ____________________________________\n\n"); // work in process
                                         printf("\t\t\t\t\t\t1.Check Balance");
 
                                         printf("\n\t\t\t\t\t\t2.Transfer Balance");
-                                        printf("\n\t\t\t\t\t\t3.Check due's");
+                                        printf("\n\t\t\t\t\t\t3.Back");
 
-                                        printf("\n\t\t\t\t\t\t4.Back");
-
-                                        printf("\n\t\t\t\t\t\t5.Exit");
-                                        printf("\n\t\t\t\t\t\tchose an option: ");
+                                        printf("\n\t\t\t\t\t\t4.Exit");
+                                        printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                        printf("\t\t\t\t\t  chose an option: ");
                                         scanf("%d",&n);
-                                        if(n==4)
+                                        if(n==3)
                                         {
                                             n=0;
                                             break;
                                         }
-                                        if(n==5)
+                                        if(n==4)
                                             exit(0);
 
                                         system("cls");
@@ -490,7 +567,9 @@ int main()
                                     n=0;
 
 
-                                    printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n"); // work in process
+                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                    printf("\t\t\t\t\t  ____________________________________\n\n"); // work in process
                                     printf("\t\t\t\t\t\t1.Amir Khan(Flat id:01)");
 
                                     printf("\n\t\t\t\t\t\t2.Raj Shaha(Flat id:02");
@@ -498,7 +577,8 @@ int main()
                                     printf("\n\t\t\t\t\t\t3.Back");
 
                                     printf("\n\t\t\t\t\t\t4.Exit");
-                                    printf("\n\t\t\t\t\t\tchose an option: ");
+                                    printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                    printf("\t\t\t\t\t  chose an option: ");
                                     scanf("%d",&n);
                                     system("cls");
 
@@ -516,7 +596,9 @@ int main()
                             else
                             {
                                 system("cls");
-                                printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                printf("\t\t\t\t\t  ____________________________________\n\n");
                                 printf("\n\t\t\t\t\t\tWrong password\n");
                                 cont_loop(n);
                             }
@@ -526,7 +608,9 @@ int main()
                 if(n==2)
                 {
                     n=0;
-                    printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                    printf("\t\t\t\t\t  ____________________________________\n\n");
                     printf("\t\t\t\t\t\tEmail adress: ");
                     scanf("%s", o1.email);
                     printf("\n\t\t\t\t\t\tPhone number: ");
@@ -558,22 +642,28 @@ int main()
             }
         }
 
-        if(option==2)   //TENENT PANEL
+        if(option==2)    //TENENT PANEL
+        {
             while(1)
             {
-                printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                printf("\t\t\t\t\t  ____________________________________\n\n");
+                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                printf("\t\t\t\t\t  ____________________________________\n\n");
                 printf("\t\t\t\t\t\t1.sign in\n");
                 printf("\t\t\t\t\t\t2.sign up\n");
                 printf("\t\t\t\t\t\t3.Back\n");
-                printf("\t\t\t\t\t\t4.Exit\n");
-                printf("\t\t\t\t\t\tchose an option: ");
+                printf("\t\t\t\t\t\t4.Exit");
+                printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                printf("\t\t\t\t\t  chose an option: ");
                 scanf("%d",&n);
                 system("cls");
 
                 if (n==1)
                 {
                     n=0;
-                    printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                    printf("\t\t\t\t\t  ____________________________________\n\n");
                     printf("\t\t\t\t\t\tUser Name: ");
                     scanf("%s", &tenant_user);
                     strcpy(creat_tfile,tenant_user);
@@ -595,12 +685,15 @@ int main()
                             if(!strcmp(tenant_pass,t1.pass))
                             {
                                 system("cls");
-                                printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                printf("\t\t\t\t\t  ____________________________________\n\n");
                                 printf("\t\t\t\t\t\t1.Search Flat\n");
                                 printf("\t\t\t\t\t\t2.Pay Bill\n");
                                 printf("\n\t\t\t\t\t\t3.Back\n");
-                                printf("\t\t\t\t\t\t4.Exit\n");
-                                printf("\t\t\t\t\t\tchose an option: ");
+                                printf("\t\t\t\t\t\t4.Exit");
+                                printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                printf("\t\t\t\t\t  chose an option: ");
                                 scanf("%d",&n);
                                 system("cls");
                                 while(1)
@@ -611,15 +704,18 @@ int main()
                                     {
 
                                         n=0;
-                                        printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                        printf("\t\t\t\t\t  ____________________________________\n\n");
+                                        printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                        printf("\t\t\t\t\t  ____________________________________\n\n");
                                         printf("\t\t\t\t\t\t1.Uttara\n");
                                         printf("\t\t\t\t\t\t2.Mirpur\n");
                                         printf("\t\t\t\t\t\t3.Khilkhet\n");
                                         printf("\t\t\t\t\t\t4.Nikunjo\n");
                                         printf("\t\t\t\t\t\t5.Rampura\n\n");
                                         printf("\t\t\t\t\t\t6.Back\n");
-                                        printf("\t\t\t\t\t\t7.Exit\n");
-                                        printf("\n\t\t\t\t\t\tchose an option: ");
+                                        printf("\t\t\t\t\t\t7.Exit");
+                                        printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                        printf("\t\t\t\t\t  chose an option: ");
                                         scanf("%d",&n);
 
                                         system("cls");
@@ -632,18 +728,23 @@ int main()
                                             if(uttaraFlat==NULL)
                                             {
                                                 printf("file not available");
-                                            }else{
-                                            printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
-                                            printf("Available Flats in Uttara\n\n");
-                                            while(!feof(uttaraFlat)){
-                                                uttara_ch=fgetc(uttaraFlat);
-                                                printf("%c",uttara_ch);
                                             }
-                                            fclose(uttaraFlat);
+                                            else
+                                            {
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("Available Flats in Uttara\n\n");
+                                                while(!feof(uttaraFlat))
+                                                {
+                                                    uttara_ch=fgetc(uttaraFlat);
+                                                    printf("%c",uttara_ch);
+                                                }
+                                                fclose(uttaraFlat);
 
 
 
-                                        }
+                                            }
                                         }
                                         if(n==2)
                                         {
@@ -652,15 +753,20 @@ int main()
                                             if(mirpurFlat==NULL)
                                             {
                                                 printf("file not available");
-                                            }else{
-                                            printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
-                                            printf("Available Flats in Mirpur\n\n");
-                                            while(!feof(mirpurFlat)){
-                                                mirpur_ch=fgetc(mirpurFlat);
-                                                printf("%c",mirpur_ch);
                                             }
-                                            fclose(mirpurFlat);
-                                        }
+                                            else
+                                            {
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("Available Flats in Mirpur\n\n");
+                                                while(!feof(mirpurFlat))
+                                                {
+                                                    mirpur_ch=fgetc(mirpurFlat);
+                                                    printf("%c",mirpur_ch);
+                                                }
+                                                fclose(mirpurFlat);
+                                            }
                                         }
                                         if(n==3)
                                         {
@@ -669,15 +775,20 @@ int main()
                                             if(khilkhetFlat==NULL)
                                             {
                                                 printf("file not available");
-                                            }else{
-                                            printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
-                                            printf("Available Flats in Mirpur\n\n");
-                                            while(!feof(khilkhetFlat)){
-                                                khilkhet_ch=fgetc(khilkhetFlat);
-                                                printf("%c",khilkhet_ch);
                                             }
-                                            fclose(khilkhetFlat);
-                                        }
+                                            else
+                                            {
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("Available Flats in Mirpur\n\n");
+                                                while(!feof(khilkhetFlat))
+                                                {
+                                                    khilkhet_ch=fgetc(khilkhetFlat);
+                                                    printf("%c",khilkhet_ch);
+                                                }
+                                                fclose(khilkhetFlat);
+                                            }
                                         }
                                         if(n==4)
                                         {
@@ -686,15 +797,20 @@ int main()
                                             if(nikunjoFlat==NULL)
                                             {
                                                 printf("file not available");
-                                            }else{
-                                            printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
-                                            printf("Available Flats in Mirpur\n\n");
-                                            while(!feof(nikunjoFlat)){
-                                                nikunjo_ch=fgetc(nikunjoFlat);
-                                                printf("%c",nikunjo_ch);
                                             }
-                                            fclose(nikunjoFlat);
-                                        }
+                                            else
+                                            {
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("Available Flats in Mirpur\n\n");
+                                                while(!feof(nikunjoFlat))
+                                                {
+                                                    nikunjo_ch=fgetc(nikunjoFlat);
+                                                    printf("%c",nikunjo_ch);
+                                                }
+                                                fclose(nikunjoFlat);
+                                            }
                                         }
                                         if(n==5)
                                         {
@@ -703,15 +819,20 @@ int main()
                                             if(rampuraFlat==NULL)
                                             {
                                                 printf("file not available");
-                                            }else{
-                                            printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
-                                            printf("Available Flats in Mirpur\n\n");
-                                            while(!feof(rampuraFlat)){
-                                                rampura_ch=fgetc(rampuraFlat);
-                                                printf("%c",rampura_ch);
                                             }
-                                            fclose(rampuraFlat);
-                                        }
+                                            else
+                                            {
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("Available Flats in Mirpur\n\n");
+                                                while(!feof(rampuraFlat))
+                                                {
+                                                    rampura_ch=fgetc(rampuraFlat);
+                                                    printf("%c",rampura_ch);
+                                                }
+                                                fclose(rampuraFlat);
+                                            }
                                         }
 
                                     }  //dot
@@ -724,13 +845,16 @@ int main()
                                         {
 
                                             n=0;
-                                            printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                                            printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                            printf("\t\t\t\t\t  ____________________________________\n\n");
 
                                             printf("\t\t\t\t\t\t1.Bank payment\n");
                                             printf("\t\t\t\t\t\t2.Mobile Bank payment\n");
                                             printf("\n\t\t\t\t\t\t3.back\n");
-                                            printf("\t\t\t\t\t\t4.Exit\n");
-                                            printf("\n\t\t\t\t\t\tchose an option: ");
+                                            printf("\t\t\t\t\t\t4.Exit");
+                                            printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                            printf("\t\t\t\t\t  chose an option: ");
                                             scanf("%d",&n);
 
                                             system("cls");
@@ -739,34 +863,318 @@ int main()
                                             {
 
                                                 n=0;
-                                                printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
 
                                                 printf("\t\t\t\t\t\t1.Dutch bangla bank\n");
                                                 printf("\t\t\t\t\t\t2.Brac bank limited\n");
                                                 printf("\t\t\t\t\t\t3.sonali bank\n");
                                                 printf("\t\t\t\t\t\t4.islami bank\n");
                                                 printf("\n\t\t\t\t\t\t5.back\n");
-                                                printf("\t\t\t\t\t\t6.Exit\n");
-                                                printf("\n\t\t\t\t\t\tchose an option: ");
+                                                printf("\t\t\t\t\t\t6.Exit");
+                                                printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("\t\t\t\t\t  chose an option: ");
                                                 scanf("%d",&n);
 
                                                 system("cls");
+                                                if(n==1)
+                                                {
+                                                    n=0;
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+
+                                                    printf("\t\t\t\t\t\tCard number:");
+                                                    scanf("%s",C1.cnumber);
+                                                    printf("\t\t\t\t\t\tName on card:");
+                                                    scanf("%s",C1.cname);
+                                                    printf("\t\t\t\t\t\tExpiration date:");
+                                                    scanf("%s",C1.edate);
+                                                    printf("\t\t\t\t\t\tCVV:");
+                                                    scanf("%s",C1.cvv);
+                                                    printf("\n\t\t\t\t\t\t1.back\n");
+                                                    printf("\t\t\t\t\t\t2.Exit");
+                                                    printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t  chose an option: ");
+                                                    scanf("%d",&n);
+
+                                                    system("cls");
+                                                    if(n==2)
+                                                        exit(0);
+
+                                                }
+                                                if(n==2)
+                                                {
+                                                    n=0;
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+
+                                                    printf("\t\t\t\t\t\tCard number:");
+                                                    scanf("%s",C2.cnumber);
+                                                    printf("\t\t\t\t\t\tName on card:");
+                                                    scanf("%s",C2.cname);
+                                                    printf("\t\t\t\t\t\tExpiration date:");
+                                                    scanf("%s",C2.edate);
+                                                    printf("\t\t\t\t\t\tCVV:");
+                                                    scanf("%s",C2.cvv);
+                                                    printf("\n\t\t\t\t\t\t1.back\n");
+                                                    printf("\t\t\t\t\t\t2.Exit");
+                                                    printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t  chose an option: ");
+                                                    scanf("%d",&n);
+
+                                                    system("cls");
+                                                    if(n==2)
+                                                        exit(0);
+
+                                                }
+                                                if(n==3)
+                                                {
+                                                    n=0;
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+
+                                                    printf("\t\t\t\t\t\tCard number:");
+                                                    scanf("%s",C3.cnumber);
+                                                    printf("\t\t\t\t\t\tName on card:");
+                                                    scanf("%s",C3.cname);
+                                                    printf("\t\t\t\t\t\tExpiration date:");
+                                                    scanf("%s",C3.edate);
+                                                    printf("\t\t\t\t\t\tCVV:");
+                                                    scanf("%s",C3.cvv);
+                                                    printf("\n\t\t\t\t\t\t1.back\n");
+                                                    printf("\t\t\t\t\t\t2.Exit");
+                                                    printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t  chose an option: ");
+                                                    scanf("%d",&n);
+
+                                                    system("cls");
+                                                    if(n==2)
+                                                        exit(0);
+
+                                                }
+                                                if(n==4)
+                                                {
+                                                    n=0;
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+
+                                                    printf("\t\t\t\t\t\tCard number:");
+                                                    scanf("%s",C4.cnumber);
+                                                    printf("\t\t\t\t\t\tName on card:");
+                                                    scanf("%s",C4.cname);
+                                                    printf("\t\t\t\t\t\tExpiration date:");
+                                                    scanf("%s",C4.edate);
+                                                    printf("\t\t\t\t\t\tCVV:");
+                                                    scanf("%s",C4.cvv);
+                                                    printf("\n\t\t\t\t\t\t1.back\n");
+                                                    printf("\t\t\t\t\t\t2.Exit");
+                                                    printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t  chose an option: ");
+                                                    scanf("%d",&n);
+
+                                                    system("cls");
+                                                    if(n==2)
+                                                        exit(0);
+
+                                                }
                                             }
                                             if(n==2)
                                             {
                                                 n=0;
-                                                printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                printf("\t\t\t\t\t  ____________________________________\n\n");
 
                                                 printf("\t\t\t\t\t\t1.Bkash\n");
                                                 printf("\t\t\t\t\t\t2.Nagad\n");
                                                 printf("\t\t\t\t\t\t3.Rocket\n");
                                                 printf("\t\t\t\t\t\t4.Upay\n");
                                                 printf("\n\t\t\t\t\t\t5.back\n");
-                                                printf("\t\t\t\t\t\t6.Exit\n");
-                                                printf("\n\t\t\t\t\t\tchose an option: ");
+                                                printf("\t\t\t\t\t\t6.Exit");
+                                                printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                                printf("\t\t\t\t\t  chose an option: ");
                                                 scanf("%d",&n);
 
                                                 system("cls");
+                                                if(n==1)
+                                                {
+                                                    n=0;
+                                                    Totalbalance=fopen("total_balance.txt","r");
+                                                    fread(&tmoney,sizeof(struct Tbalance),1,Totalbalance);
+                                                    fclose(Totalbalance);
+                                                    Bkashdata=fopen("bkash_data.txt","a");
+                                                    if(Bkashdata==NULL)
+                                                    {
+                                                        printf("file not created");
+                                                    }
+
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                    fgetc(stdin);
+                                                    printf("\t\t\t\t\t\tEnter Name: ");
+                                                    fgets(B1.name,20,stdin);
+                                                    B1.name[strlen(B1.name)-1]=0;
+                                                    fprintf(Bkashdata,"User Name = %s\n",B1.name);
+                                                    printf("\t\t\t\t\t\tBkash Number: ");
+                                                    scanf("%s",&B1.number);
+                                                    fprintf(Bkashdata,"User Number = %s\n",B1.number);
+                                                    printf("\t\t\t\t\t\tAmount: ");
+
+                                                    scanf("%s",&B1.amount);
+                                                    Totalbalance=fopen("total_balance.txt","w");
+                                                    fwrite(&tmoney,sizeof(struct Tbalance),1,Totalbalance);
+                                                    fclose(Totalbalance);
+
+                                                    fprintf(Bkashdata,"Amount = %s\n",B1.amount);
+                                                    printf("\t\t\t\t\t\tTransaction id: ");
+                                                    scanf("%s",&B1.Tzid);
+                                                    fprintf(Bkashdata,"Transaction id = %s\n\n",B1.Tzid);
+                                                    fclose(Bkashdata);
+                                                    printf("\t\t\t\t\t\tYou will recive a confirmation sms with in 2 hours.\n");
+                                                    printf("\t\t\t\t\t\t1.Back \n");
+                                                    printf("\t\t\t\t\t\t2.Exit ");
+                                                    printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t  chose an option: ");
+                                                    scanf("%d",&n);
+
+                                                    system("cls");
+                                                    if(n==2)
+                                                    {
+                                                        n=0;
+                                                        exit(0);
+                                                    }
+                                                }
+                                                if(n==2)
+                                                {
+                                                    n=0;
+                                                    Nagaddata=fopen("Nagad_data.txt","a");
+                                                    if(Nagaddata==NULL)
+                                                    {
+                                                        printf("file not created");
+                                                    }
+
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                    fgetc(stdin);
+                                                    printf("\t\t\t\t\t\tEnter Name: ");
+                                                    fgets(N1.name,20,stdin);
+                                                    N1.name[strlen(N1.name)-1]=0;
+                                                    fprintf(Nagaddata,"User Name = %s\n",N1.name);
+                                                    printf("\t\t\t\t\t\tNagad Number: ");
+                                                    scanf("%s",&N1.number);
+                                                    fprintf(Nagaddata,"User Number = %s\n",N1.number);
+                                                    printf("\t\t\t\t\t\tAmount: ");
+                                                    scanf("%s",&N1.amount);
+                                                    fprintf(Nagaddata,"Amount = %s\n",N1.amount);
+                                                    printf("\t\t\t\t\t\tTransaction id: ");
+                                                    scanf("%s",&N1.Tzid);
+                                                    fprintf(Nagaddata,"Transaction id = %s\n\n",N1.Tzid);
+                                                    fclose(Nagaddata);
+                                                    printf("\t\t\t\t\t\tYou will recive a confirmation sms with in 2 hours.\n");
+                                                    printf("\t\t\t\t\t\t1.Back \n");
+                                                    printf("\t\t\t\t\t\t2.Exit ");
+                                                    printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t  chose an option: ");
+                                                    scanf("%d",&n);
+
+                                                    system("cls");
+                                                    if(n==2)
+                                                    {
+                                                        n=0;
+                                                        exit(0);
+                                                    }
+                                                }
+                                                if(n==3)
+                                                {
+                                                    n=0;
+                                                    Roketdata=fopen("Roket_data.txt","a");
+                                                    if(Roketdata==NULL)
+                                                    {
+                                                        printf("file not created");
+                                                    }
+
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                    fgetc(stdin);
+                                                    printf("\t\t\t\t\t\tEnter Name: ");
+                                                    fgets(R1.name,20,stdin);
+                                                    R1.name[strlen(R1.name)-1]=0;
+                                                    fprintf(Roketdata,"User Name = %s\n",R1.name);
+                                                    printf("\t\t\t\t\t\tNagad Number: ");
+                                                    scanf("%s",&R1.number);
+                                                    fprintf(Roketdata,"User Number = %s\n",R1.number);
+
+                                                    printf("\t\t\t\t\t\tAmount: ");
+                                                    scanf("%s",&R1.amount);
+                                                    fprintf(Roketdata,"Amount = %s\n",R1.amount);
+                                                    printf("\t\t\t\t\t\tTransaction id: ");
+                                                    scanf("%s",&R1.Tzid);
+                                                    fprintf(Roketdata,"Transaction id = %s\n\n",R1.Tzid);
+                                                    fclose(Roketdata);
+                                                    printf("\t\t\t\t\t\tYou will recive a confirmation sms with in 2 hours.\n");
+                                                    printf("\t\t\t\t\t\t1.Back \n");
+                                                    printf("\t\t\t\t\t\t2.Exit ");
+                                                    printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t  chose an option: ");
+                                                    scanf("%d",&n);
+
+                                                    system("cls");
+                                                    if(n==2)
+                                                    {
+                                                        n=0;
+                                                        exit(0);
+                                                    }
+                                                }
+                                                if(n==4)
+                                                {
+                                                    n=0;
+                                                    Upaydata=fopen("Upay_data.txt","a");
+                                                    if(Upaydata==NULL)
+                                                    {
+                                                        printf("file not created");
+                                                    }
+
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                                                    fgetc(stdin);
+                                                    printf("\t\t\t\t\t\tEnter Name: ");
+                                                    fgets(U1.name,20,stdin);
+                                                    U1.name[strlen(U1.name)-1]=0;
+                                                    fprintf(Upaydata,"User Name = %s\n",U1.name);
+                                                    printf("\t\t\t\t\t\tNagad Number: ");
+                                                    scanf("%s",&U1.number);
+                                                    fprintf(Upaydata,"User Number = %s\n",U1.number);
+
+                                                    printf("\t\t\t\t\t\tAmount: ");
+                                                    scanf("%s",&U1.amount);
+                                                    fprintf(Upaydata,"Amount = %s\n",U1.amount);
+                                                    printf("\t\t\t\t\t\tTransaction id: ");
+                                                    scanf("%s",&U1.Tzid);
+                                                    fprintf(Upaydata,"Transaction id = %s\n\n",U1.Tzid);
+                                                    fclose(Upaydata);
+                                                    printf("\t\t\t\t\t\tYou will recive a confirmation sms with in 2 hours.\n");
+                                                    printf("\t\t\t\t\t\t1.Back \n");
+                                                    printf("\t\t\t\t\t\t2.Exit ");
+                                                    printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                                                    printf("\t\t\t\t\t  chose an option: ");
+                                                    scanf("%d",&n);
+
+                                                    system("cls");
+                                                    if(n==2)
+                                                    {
+                                                        n=0;
+                                                        exit(0);
+                                                    }
+                                                }
                                             }
                                             if(n==3)  //why not working
                                             {
@@ -781,7 +1189,9 @@ int main()
                             else
                             {
                                 system("cls");
-                                printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                                printf("\t\t\t\t\t  ____________________________________\n\n");
+                                printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                                printf("\t\t\t\t\t  ____________________________________\n\n");
                                 printf("\n\t\t\t\t\t\tWrong password\n");
                                 cont_loop(n);
                             }
@@ -799,7 +1209,9 @@ int main()
                 if(n==2)
                 {
                     n=0;
-                    printf("\t\t\t\t\t\tDIGITAL RENTAL SYSTEM\n");
+                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                    printf("\t\t\t\t\t  ____________________________________\n\n");
                     printf("\t\t\t\t\t\tEmail adress: ");
                     scanf("%s", t1.email);
                     printf("\n\t\t\t\t\t\tPhone number: ");
@@ -829,11 +1241,199 @@ int main()
                 system("cls");
 
             }
+        }
+
         if(option==3)
         {
-            n=0;
-            break;
+            fgetc(stdin);
+            printf("\t\t\t\t\t  ____________________________________\n\n");
+            printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+            printf("\t\t\t\t\t  ____________________________________\n\n");
+            printf("\t\t\t\t\t\tUser ID: ");
+            gets(idd);
+
+            if(!strcmp(id,idd))
+            {
+
+                printf("\t\t\t\t\t\tPassword: ");
+                gets(passs);
+                system("cls");
+                if(!strcmp(pass,passs))
+                {
+
+                    n=0;
+                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                    printf("\t\t\t\t\t\t1.Bkash Transactions\n");
+                    printf("\t\t\t\t\t\t2.Nagad Transactions\n");
+                    printf("\t\t\t\t\t\t3.Roket Transactions\n");
+                    printf("\t\t\t\t\t\t4.Upay Transactions");
+                    printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                    printf("\t\t\t\t\t  chose an option: ");
+                    scanf("%d",&n);
+                    system("cls");
+                    if(n==1)
+                    {
+                        n=0;
+                        Bkashdata=fopen("bkash_data.txt","r");
+                        if(Bkashdata==NULL)
+                        {
+                            printf("file not available");
+                        }
+                        else
+                        {
+                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                            printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                            printf("Transactions\n");
+                            printf("____________\n\n");
+                            while(!feof(Bkashdata))
+                            {
+                                bkash_ch=fgetc(Bkashdata);
+                                printf("%c",bkash_ch);
+                            }
+                            fclose(Bkashdata);
+                        }
+                        printf("\t\t\t\t\t\t1.Back\n");
+                        printf("\t\t\t\t\t\t2.Exit");
+                        printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                        printf("\t\t\t\t\t  chose an option: ");
+                        scanf("%d",&n);
+                        system("cls");
+                        if(n==2)
+                            exit(0);
+
+                    }
+                    if(n==2)
+                    {
+                        n=0;
+                        Nagaddata=fopen("Nagad_data.txt","r");
+                        if(Nagaddata==NULL)
+                        {
+                            printf("file not available");
+                        }
+                        else
+                        {
+                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                            printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                            printf("Transactions\n");
+                            printf("____________\n\n");
+                            while(!feof(Nagaddata))
+                            {
+                                nagad_ch=fgetc(Nagaddata);
+                                printf("%c",nagad_ch);
+                            }
+                            fclose(Nagaddata);
+                        }
+                        printf("\t\t\t\t\t\t1.Back\n");
+                        printf("\t\t\t\t\t\t2.Exit");
+                        printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                        printf("\t\t\t\t\t  chose an option: ");
+                        scanf("%d",&n);
+                        system("cls");
+                        if(n==2)
+                            exit(0);
+
+                    }
+                    if(n==3)
+                    {
+                        n=0;
+                        Roketdata=fopen("Roket_data.txt","r");
+                        if(Roketdata==NULL)
+                        {
+                            printf("file not available");
+                        }
+                        else
+                        {
+                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                            printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                            printf("Transactions\n");
+                            printf("____________\n\n");
+                            while(!feof(Roketdata))
+                            {
+                                roket_ch=fgetc(Roketdata);
+                                printf("%c",roket_ch);
+                            }
+                            fclose(Roketdata);
+                        }
+                        printf("\t\t\t\t\t\t1.Back\n");
+                        printf("\t\t\t\t\t\t2.Exit");
+                        printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                        printf("\t\t\t\t\t  chose an option: ");
+                        scanf("%d",&n);
+                        system("cls");
+                        if(n==2)
+                            exit(0);
+
+                    }
+                    if(n==4)
+                    {
+                        n=0;
+                        Upaydata=fopen("Upay_data.txt","r");
+                        if(Upaydata==NULL)
+                        {
+                            printf("file not available");
+                        }
+                        else
+                        {
+                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                            printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                            printf("\t\t\t\t\t  ____________________________________\n\n");
+                            printf("Transactions\n");
+                            printf("____________\n\n");
+                            while(!feof(Upaydata))
+                            {
+                                upay_ch=fgetc(Upaydata);
+                                printf("%c",upay_ch);
+                            }
+                            fclose(Upaydata);
+                        }
+                        printf("\t\t\t\t\t\t1.Back\n");
+                        printf("\t\t\t\t\t\t2.Exit");
+                        printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                        printf("\t\t\t\t\t  chose an option: ");
+                        scanf("%d",&n);
+                        system("cls");
+                        if(n==2)
+                            exit(0);
+
+                    }
+                }
+                else
+                {
+                    n=0;
+                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                    printf("\t\t\t\t\t\t||DIGITAL RENTAL SYSTEM||\n");
+                    printf("\t\t\t\t\t  ____________________________________\n\n");
+                    printf("\n\t\t\t\t\t\tWrong Password\n");
+                    printf("\t\t\t\t\t\t1.Try again\n");
+                    printf("\t\t\t\t\t\t2.Exit");
+                    printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                    printf("\t\t\t\t\t  chose an option: ");
+                    scanf("%d",&n);
+                    system("cls");
+                    if(n==2)
+                        exit(0);
+                }
+            }
+            else
+            {
+                n=0;
+                printf("\n\t\t\t\t\t\tWrong user id\n");
+                printf("\t\t\t\t\t\t1.Try again\n");
+                printf("\t\t\t\t\t\t2.Exit");
+                printf("\n\t\t\t\t\t  ____________________________________\n\n");
+                printf("\t\t\t\t\t  chose an option: ");
+                scanf("%d",&n);
+                system("cls");
+                if(n==2)
+                    exit(0);
+            }
         }
+
         if(option==4)
             exit(0);
     }
