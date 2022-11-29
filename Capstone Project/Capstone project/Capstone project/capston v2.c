@@ -180,9 +180,9 @@ int main()
                                 printf("\t\t\t\t\t  ____________________________________\n\n");
                                 printf("\t\t\t\t\t\t1.Add Flat");
                                 printf("\n\t\t\t\t\t\t2.Collect Rent");
-                                printf("\n\t\t\t\t\t\t3.Tenent List");
-                                printf("\n\t\t\t\t\t\t4.Back");
-                                printf("\n\t\t\t\t\t\t5.Exit");
+                                //printf("\n\t\t\t\t\t\t3.Tenent List");
+                                printf("\n\t\t\t\t\t\t3.Back");
+                                printf("\n\t\t\t\t\t\t4.Exit");
                                 printf("\n\t\t\t\t\t  ____________________________________\n\n");
                                 printf("\t\t\t\t\t  chose an option: ");
                                 scanf("%d",&n);
@@ -562,7 +562,7 @@ int main()
                                         system("cls");
                                     }
                                 }
-                                if(n==3)
+                                /*if(n==3)
                                 {
                                     n=0;
 
@@ -583,14 +583,14 @@ int main()
                                     system("cls");
 
 
-                                }
+                                }*/
 
-                                if(n==4)
+                                if(n==3)
                                 {
                                     n=0;
                                     break;
                                 }
-                                if(n==5)
+                                if(n==4)
                                     exit(0);
                             }
                             else
